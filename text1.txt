@@ -1,0 +1,50 @@
+1:用SQL语句找出是计算机系并籍贯是北京的学生的所有记录
+select * from Test1 where Department='计算机系' and Place='北京'
+
+2：用SQL语句把计算机系的学生的改为信息学院
+updata Test1 set Department='信息学院' where Department='计算机系'
+
+3:用SQL连接查询找出成绩大于等于75分的学生的No,Name,Grade,Courses字段的记录
+select No,Nname,Grade,Courses from Text1,Text2 where Text1.No=Text2.no and Grade>75;
+
+4:Linux基本操作部分
+1.chmod,chgrp,chown命令的作用是什么
+chmod修改文件或目录的操作权限
+chgrp修改属组对文件或目录的操作权限
+chown修改属主对文件或目录的操作权限
+对File.txt文件的属组和用户增加写的权限，删除其他人的写的权限。
+tar -cvf /etc 
+4：说明find . -size +10000000c -print的含义
+在当前目录下查找文件长度大于1 M字节的文件：
+
+2：查询出员工编号，员工姓名，职位，薪资，奖金
+select id,name,job,salary,bouns from dt_emp,dt_pay where dt_emp.emploryid=dt_pay.emploryid
+
+a:使用标准SQL嵌套语句查询选修课程名称为税收基础的学员学号和姓名。
+select S#,SN from S where S# in (select S# from SC where C# in
+(select C# from CN='税收基础')) 
+
+b:使用标准SQL嵌套语句查询选修课程编号为‘C2’的学员姓名和所属单位
+select SN,SD from S where S# in (select S# from SC where C#='C2')
+
+c:使用SQL嵌套语句查询选修课程编号为S5的学员姓名和所属单位
+select SN,SD from S where S# not in (select S# from SC where C#='C5')
+
+d:查询选修了课程的学员人数
+select count(S.SN) from S,SC where S.S#=SC.S#;
+
+1:请写出计算所有学生的英语平均成绩的SQL语句
+select avg(english) from mark;
+
+2:现有五个学生，学号假定分别为11，22,33,44,55.请用一条SQL语句实现列出这五个学生的数学
+成绩及其姓名，学生地址，电话号码
+select math,Name,Address,Telno
+
+
+
+
+
+
+
+
+
